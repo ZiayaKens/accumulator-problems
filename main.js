@@ -3,8 +3,8 @@
 SAMPLE
 ----------------------------------------
 
-Challenge: Write function named test that returns the string "This Works!". 
-Solution: This one has already been complete for you. 
+Challenge: Write function named test that returns the string "This Works!".
+Solution: This one has already been complete for you.
 
 */
 
@@ -26,7 +26,22 @@ Example: if you pass it [1,2,3] then it should return 6 (which is 1 + 2 + 3)
 */
 
 
+function sum(arr){
 
+  if (arr.length <1){
+    return 0;
+  }
+  return arr.reduce(function (acc, current){
+    return acc + current;
+  });
+}
+
+  // var result = 0;
+  // for(let i=0;i<arr.length;i++){
+  //   result += arr[i];
+  // }
+  // return result;
+// }
 
 
 
@@ -44,7 +59,17 @@ Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
 
+function doubleNumbers(arr){
+  return arr.map(function(el, i){
+    return el*2;
+  });
 
+}
+//   for(let i=0; i<arr.length;i++){
+//     arr[i] += arr[i];
+//   }
+//   return arr;
+// }
 
 
 
@@ -67,7 +92,11 @@ Examples:
 
 
 
-
+function multiplyNumbers(arr, num){
+  return arr.map(function(el){
+    return el*num;
+  });
+}
 
 
 
@@ -82,6 +111,31 @@ Write function named doubleLetters that will take a string and double every lett
 
 Example: if you pass it "abc" then it should return "aabbcc"
 */
+
+
+function doubleLetters(str){
+  var thing = str.split('');
+  if (thing == ''){
+
+    return str;
+  }
+  thing.map(function(el, i){
+    return thing[i] = el+el;
+  })
+
+  return thing.join('');
+  //
+  // if( str != ''){
+  //
+
+  //   for(let i=0; i<thing.length; i++){
+  //
+  //     // thing.splice(i, 0, 'ok');
+  //
+  //   }
+
+  }
+
 
 
 
@@ -106,7 +160,14 @@ NOTE: you can assume each input will be the same length
 
 
 
-
+function interleave(OneArr, TwoArr){
+  let newArr = []
+  for (let i=0; i<OneArr.length; i++){
+    newArr.push(OneArr[i])
+    newArr.push(TwoArr[i])
+  }
+  return newArr
+}
 
 
 
@@ -124,7 +185,13 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
-
+function createRange(number, value){
+  let result =[]
+  for (var i = 0; i < number; i++) {
+    result.push(value)
+  }
+  return result
+}
 
 
 
@@ -143,6 +210,14 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
+function flipArray(array){
+  let result = {}
+
+  for (var i = 0; i < array.length; i++) {
+    result[array[i]] = i
+  }
+  return result
+}
 
 
 
@@ -165,7 +240,13 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 
 
 
-
+function arraysToObject(array){
+  let result ={}
+  for (var i = 0; i < array.length; i++) {
+    result[array[i][0]] = array[i][1]
+  }
+  return result
+}
 
 
 
@@ -186,7 +267,21 @@ If you pass it "hello" then it should return "olleh"
 
 
 
+function reverseString(string){
+  let middle = []
+  for (var i = 0; i < string.length; i++) {
+    middle.push(string.charAt(i))
+  }
 
+  let result = []
+  for (var i = middle.length-1; i >= 0; i--) {
+
+    result.push(middle[i])
+  }
+  result = result.join('')
+
+  return result
+}
 
 
 
@@ -210,7 +305,21 @@ If you pass it "heehaw" then it should return false because "hee" doesn't equal 
 
 
 
+function repeats(string){
+  if(string.length%2 != 0){
+    return false
+  }
+  let firstHalf = string.slice(0, string.length/2)
+  let secondHalf = string.slice(string.length/2, string.length)
+  console.log(firstHalf, secondHalf);
+  if(firstHalf == secondHalf) {
+    return true
+  }
+  else{
+    return false
+  }
 
+}
 
 
 
@@ -228,8 +337,14 @@ If you pass it "abcdef" then it should return "ace" because those represent ever
 */
 
 
-
-
+// function everyOther(string){
+//   let result =''
+//   for (var i = 0; i < string.length; i+2) {
+//     result += string.charAt(i)
+//   }
+//   return result
+// }
+//
 
 
 
@@ -794,4 +909,4 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 
 
 
-// 
+//
